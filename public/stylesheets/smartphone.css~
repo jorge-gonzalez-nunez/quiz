@@ -3,11 +3,3 @@ body { background: #333; }
 h2 span, section h3 { display: none; }
 body { font-size: xx-large; }
 footer, input { font-size: large; }
-
-#video{
-position: absolute;
-top: 15em;}
-
-#imagen{position: absolute;
-
-top: 7em;}
