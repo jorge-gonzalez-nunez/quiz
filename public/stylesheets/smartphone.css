@@ -4,6 +4,7 @@ h2 span, section h3 { display: none; }
 body { font-size: xx-large; }
 footer, input { font-size: large; }
 
+<<<<<<< HEAD
 #video{
 position: absolute;
 top: 15em;}
@@ -11,3 +12,13 @@ top: 15em;}
 #imagen{position: absolute;
 
 top: 7em;}
+=======
+#imagen{
+position: absolute;
+left: 0em;
+top: 7em;}
+
+#video{position: absolute;
+left:0 ;
+top: 17em;}
+>>>>>>> autores

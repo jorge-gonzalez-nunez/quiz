@@ -7,6 +7,7 @@ section > div { padding: 20px; }
 header, nav, section { background: #eee; text-align: center;}
 footer { background: #eee; text-align: center;}
 nav span { margin: 0px 10px 0px 0px;}
+<<<<<<< HEAD
 #imagen{
 position: absolute;
 left: 30em;
@@ -15,3 +16,14 @@ top: 7em;}
 position: absolute;
 left: 70em;
 top: 7em;}
+=======
+
+#imagen{ 
+	position: absolute;
+	left: 30em;
+	top: 7em;}
+#video{
+	position: absolute;
+	left: 70em;
+	top: 7em;}
+>>>>>>> autores

@@ -1,0 +1,14 @@
+<head>
+<link rel='icon? href='favicon.ico' type='image/x-icon'>
+</head>
+
+<h1>Página de autores</h1>
+<h3>Jorge González Núñez y Guillermo Pajares</h3>
+	
+<div class="foto">
+<img height="315" src="http://jorgeglez.neocities.org/COREp1/foto.png">
+</div>
+			
+<div class="video">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bz7ifClpT4g" frameborder="0" allowfullscreen></iframe>
+</div>         
