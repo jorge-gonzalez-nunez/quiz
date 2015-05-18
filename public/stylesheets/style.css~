@@ -14,16 +14,16 @@ left: 30em;
 top: 7em;}
 #video{
 position: absolute;
-left: 90em;
+left: 70em;
 top: 7em;}
 =======
 
 #imagen{ 
 	position: absolute;
 	left: 30em;
-	top: 6em;}
+	top: 7em;}
 #video{
 	position: absolute;
 	left: 70em;
-	top: 6em;}
+	top: 7em;}
 >>>>>>> autores
