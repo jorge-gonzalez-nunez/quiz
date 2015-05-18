@@ -12,6 +12,23 @@ exports.load = function(req, res, next, quizId) {
   ).catch(function(error) { next(error);});
 };
 
+// GET /quizes?search
+exports.search = function(req, res) {
+ 
+    if(req.query.search) {
+        var query = req.query.search.replace(/\s/g, '%');
+        var search = '%'+query+'%';
+        models.Quiz.findAll({ where: ["pregunta like ?", search]}).then(function(quizes){
+        res.render('quizes/index', { quizes: quizes, errors: []});
+        }).catch(function(error){next(error);});
+    } else {
+        models.Quiz.findAll().then(function(quizes) {
+        res.render('quizes/index', { quizes: quizes, errors: []});
+        }).catch(function(error) { next(error);});
+    }
+ 
+};
+
 // GET /quizes
 exports.index = function(req, res) {
   models.Quiz.findAll().then(
