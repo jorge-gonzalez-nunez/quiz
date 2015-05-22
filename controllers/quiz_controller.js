@@ -30,16 +30,17 @@ exports.load = function(req, res, next, quizId) {
 // GET /quizes y GET /quizes?search
 exports.index = function(req, res) {
 
+
     if(req.query.search) {
         var query = req.query.search.replace(/\s/g, '%');
         var search = '%'+query+'%';
         models.Quiz.findAll({ where: ["pregunta like ?", search]}).then(function(quizes){
         res.render('quizes/index', { quizes: quizes, errors: []});
-        }).catch(function(error){next(error);});
+        }).catch(function(error){next(error)});
     } else {
         models.Quiz.findAll().then(function(quizes) {
         res.render('quizes/index', { quizes: quizes, errors: []});
-        }).catch(function(error) { next(error);});
+        }).catch(function(error) {next(error)});
     }
  
 };
@@ -76,17 +77,17 @@ exports.new = function(req, res) {
 // POST /quizes/create
 exports.create = function(req, res) {
   req.body.quiz.UserId = req.session.user.id;
+  if(req.files.image){
+    req.body.quiz.image = req.files.image.name;
+  }
   var quiz = models.Quiz.build( req.body.quiz );
 
-  quiz
-  .validate()
-  .then(
-    function(err){
+  quiz.validate().then(function(err){
       if (err) {
         res.render('quizes/new', {quiz: quiz, errors: err.errors});
       } else {
         quiz // save: guarda en DB campos pregunta y respuesta de quiz
-        .save({fields: ["pregunta", "respuesta", "UserId"]})
+        .save({fields: ["pregunta", "respuesta", "UserId", "image"]})
         .then( function(){ res.redirect('/quizes')}) 
       }      // res.redirect: Redirección HTTP a lista de preguntas
     }).catch(function(error){next(error)});
@@ -101,18 +102,19 @@ exports.edit = function(req, res) {
 
 // PUT /quizes/:id
 exports.update = function(req, res) {
+  if(req.files.image){
+    req.quiz.image = req.files.image.name;
+  }
+
   req.quiz.pregunta  = req.body.quiz.pregunta;
   req.quiz.respuesta = req.body.quiz.respuesta;
 
-  req.quiz
-  .validate()
-  .then(
-    function(err){
+  req.quiz.validate().then(function(err){
       if (err) {
         res.render('quizes/edit', {quiz: req.quiz, errors: err.errors});
       } else {
         req.quiz     // save: guarda campos pregunta y respuesta en DB
-        .save( {fields: ["pregunta", "respuesta"]})
+        .save( {fields: ["pregunta", "respuesta", "image"]})
         .then( function(){ res.redirect('/quizes');});
       }     // Redirección HTTP a lista de preguntas (URL relativo)
     }).catch(function(error){next(error)});

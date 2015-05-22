@@ -10,24 +10,25 @@ nav span { margin: 0px 10px 0px 0px;}
 
 #ErrorMsgs           { color: #f61; font-size: smaler}
 .right 				 {float: right;}
+.quiz_img 			 { height: 150px; float: left;}
 
 <<<<<<< HEAD
 #imagen{
 position: absolute;
-left: 30em;
-top: 7em;}
+left: 10em;
+top: 2em;}
 #video{
 position: absolute;
-left: 70em;
-top: 7em;}
+left: 50em;
+top: 2em;}
 =======
 
 #imagen{ 
 	position: absolute;
-	left: 30em;
-	top: 7em;}
+	left: 10em;
+	top: 2em;}
 #video{
 	position: absolute;
-	left: 70em;
-	top: 7em;}
+	left: 50em;
+	top: 2em;}
 >>>>>>> autores

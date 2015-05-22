@@ -46,7 +46,6 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use('/', routes); //Siempre se reenderiza despues de todo para poder incluir el sesion tambien en las direcciones, sino no lo incluye y peta
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -77,4 +76,7 @@ error: {},
 errors: []
 });
 });
+
+app.use('/', routes); //Siempre se reenderiza despues de todo para poder incluir el sesion tambien en las direcciones, sino no lo incluye y peta
+
 module.exports = app;
