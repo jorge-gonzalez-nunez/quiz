@@ -15,7 +15,7 @@ exports.load = function(req, res, next, quizId) {
 // GET /quizes?search
 
 
-// GET /quizes
+// GET /quizes y GET /quizes?search
 exports.index = function(req, res) {
 
     if(req.query.search) {
@@ -63,6 +63,7 @@ exports.new = function(req, res) {
 
 // POST /quizes/create
 exports.create = function(req, res) {
+  req.body.quiz.UserId = req.session.user.id;
   var quiz = models.Quiz.build( req.body.quiz );
 
   quiz
@@ -73,11 +74,10 @@ exports.create = function(req, res) {
         res.render('quizes/new', {quiz: quiz, errors: err.errors});
       } else {
         quiz // save: guarda en DB campos pregunta y respuesta de quiz
-        .save({fields: ["pregunta", "respuesta"]})
+        .save({fields: ["pregunta", "respuesta", "UserId"]})
         .then( function(){ res.redirect('/quizes')}) 
       }      // res.redirect: Redirección HTTP a lista de preguntas
-    }
-  );
+    }).catch(function(error){next(error)});
 };
 
 // GET /quizes/:id/edit
@@ -103,8 +103,7 @@ exports.update = function(req, res) {
         .save( {fields: ["pregunta", "respuesta"]})
         .then( function(){ res.redirect('/quizes');});
       }     // Redirección HTTP a lista de preguntas (URL relativo)
-    }
-  );
+    }).catch(function(error){next(error)});
 };
 
 // DELETE /quizes/:id
