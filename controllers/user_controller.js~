@@ -79,3 +79,13 @@ exports.update = function(req, res, next) {
       }     // Redirección HTTP a /
     }).catch(function(error){next(error)});
 };
+
+// DELETE /user/:id
+exports.destroy = function(req, res) {
+  req.user.destroy().then( function() {
+    // borra la sesión y redirige a /
+    delete req.session.user;
+    res.redirect('/');
+  }).catch(function(error){next(error)});
+}; 
+
