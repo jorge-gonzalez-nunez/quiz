@@ -21,8 +21,7 @@
      </tr> 
   <% } %>
   </table>
-<<<<<<< HEAD
+
   <p/>
   <a href="/quizes/new"><button type="button">Crear pregunta</button></a>
-=======
->>>>>>> buscar
+
