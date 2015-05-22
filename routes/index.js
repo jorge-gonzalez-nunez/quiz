@@ -21,7 +21,7 @@ router.get('/logout', sessionController.destroy); // destruir sesión
 
 //Autores
 router.get('/author', function(req, res) {
-  res.render('author', { title: 'Autores' });
+  res.render('author', { title: 'Autores' , errors:[]}); //inicializo errors vacio para que no me de error directamente al llamar a autores
 });
 
 
@@ -36,8 +36,6 @@ router.get('/quizes/:quizId(\\d+)/edit',   quizController.edit);
 router.put('/quizes/:quizId(\\d+)',        quizController.update);
 router.delete('/quizes/:quizId(\\d+)',     quizController.destroy);
 
-router.get('/quizes/:quizId(\\d+)/comments/new',            commentController.new);
-router.post('/quizes/:quizId(\\d+)/comments',              commentController.create);
 
 // Definición de rutas de comentarios
 router.get('/quizes/:quizId(\\d+)/comments/new', commentController.new);

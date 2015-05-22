@@ -26,7 +26,7 @@ app.use(cookieParser('Quiz 2015'));
 app.use(session());
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/', routes);
+
 
 // Helpers dinamicos:
 app.use(function(req, res, next) {
@@ -41,6 +41,7 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.use('/', routes); //Siempre se reenderiza despues de todo para poder incluir el sesion tambien en las direcciones, sino no lo incluye y peta
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
