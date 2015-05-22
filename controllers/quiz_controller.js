@@ -30,6 +30,12 @@ exports.load = function(req, res, next, quizId) {
 // GET /quizes y GET /quizes?search
 exports.index = function(req, res) {
 
+// GET /users/:userId/quizes
+ 
+  var options = {};
+  if(req.user){
+    options.where = {UserId: req.user.id}
+  }
 
     if(req.query.search) {
         var query = req.query.search.replace(/\s/g, '%');

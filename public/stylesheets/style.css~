@@ -15,20 +15,20 @@ nav span { margin: 0px 10px 0px 0px;}
 <<<<<<< HEAD
 #imagen{
 position: absolute;
-left: 20em;
+left: 10em;
 top: 2em;}
 #video{
 position: absolute;
-left: 60em;
+left: 50em;
 top: 2em;}
 =======
 
 #imagen{ 
 	position: absolute;
-	left: 20em;
+	left: 10em;
 	top: 2em;}
 #video{
 	position: absolute;
-	left: 60em;
+	left: 50em;
 	top: 2em;}
 >>>>>>> autores
